@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Next.js App',
-  description: 'Next.js application with TypeScript',
+  title: 'Novera 음원 데이터 대시보드',
+  description: '플랫폼별 음원 스트리밍 데이터 분석 및 시각화',
 };
 
 type RootLayoutProps = {

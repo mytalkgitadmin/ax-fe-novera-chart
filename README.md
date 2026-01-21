@@ -1,84 +1,174 @@
-# Frontend Scaffold (Next.js)
+# 📢 Social Media Campaign Dashboard
 
-Next.js + TypeScript 프로젝트를 위한 프론트엔드 스캐폴드 템플릿입니다.
+소셜 미디어 캠페인 분석 대시보드
 
-## 📋 포함된 도구
+## 🎨 미리보기
 
-### 프레임워크 & 라이브러리
+제공하신 디자인을 기반으로 제작된 현대적인 캠페인 대시보드입니다.
 
-- **Next.js 15.1.6** - React 프레임워크 (App Router)
-- **React 19.0.0** - UI 라이브러리
-- **TypeScript 5.9.3** - 타입 안정성
+![Dashboard Screenshot](./docs/dashboard-preview.png)
 
-### 코드 품질
+## 📊 주요 기능
 
-- **ESLint 9.39.2** - 코드 린팅 (Flat Config + Next.js Config)
-- **Prettier 3.4.2** - 코드 포매팅
+### 핵심 메트릭 (KPI)
+- 👍 **Total Likes** - 총 좋아요 수
+- 💬 **Total Comments** - 총 댓글 수
+- 📊 **Total Shares** - 총 공유 수
+- ⚡ **Engagement** - 참여율
 
-### Git 워크플로우
+### 플랫폼 지원
+- **Tiktok** - 틱톡 캠페인 데이터
+- **Instagram** - 인스타그램 캠페인 데이터
+- **Facebook** - 페이스북 캠페인 데이터
 
-- **Husky 9.1.7** - Git hooks 관리
-- **Commitizen + cz-customizable** - 인터랙티브 커밋 메시지 작성
-- **Commitlint** - 커밋 메시지 규칙 검증
+### 데이터 시각화
+- 🗺️ **Campaign Reach Map** - 국가별 캠페인 도달 범위 (세계 지도)
+- 👥 **Influencer Table** - 인플루언서 목록 및 팔로워 수
+- 📊 **Audience Age & Gender** - 연령 및 성별 분포 (양방향 바 차트)
+- 🎯 **Follower Interest** - 팔로워 관심사 분석 (레이더 차트)
 
-### ESLint 플러그인
+### UI/UX 특징
+- 🎨 밝은 테마의 모던한 디자인
+- 📱 반응형 레이아웃 (모바일/태블릿/데스크톱)
+- 🔄 플랫폼별 실시간 데이터 필터링
+- 🎭 부드러운 애니메이션과 호버 효과
+- 🔍 인터랙티브 차트 (호버 시 상세 정보 표시)
 
-- `eslint-config-next` - Next.js 최적화 규칙
-- `eslint-plugin-react` - React 린팅
-- `eslint-plugin-react-hooks` - React Hooks 규칙
-- `eslint-plugin-import` - import/export 구문 검증
-- `eslint-plugin-simple-import-sort` - import 자동 정렬
-- `eslint-plugin-prettier` - Prettier 통합
+## 🛠️ 기술 스택
+
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Charts**: Recharts, Nivo
+- **Styling**: CSS (Global Styles)
+- **Code Quality**: ESLint, Prettier, Husky
 
 ## 🚀 시작하기
 
-### 1. 프로젝트 복사
-
-```bash
-# 이 템플릿을 새 프로젝트로 복사
-cp -r frontend-scaffold my-new-project
-cd my-new-project
-
-# Git 초기화 (선택사항)
-rm -rf .git
-git init
-```
-
-### 2. 의존성 설치
+### 1. 의존성 설치
 
 ```bash
 npm install
 ```
 
-### 3. 환경 변수 설정
-
-```bash
-# .env.local 파일 생성
-cat > .env.local << 'EOF'
-NEXT_PUBLIC_API_URL=http://localhost:3000/api
-API_SECRET_KEY=your-secret-key
-EOF
-```
-
-### 4. 개발 서버 실행
+### 2. 개발 서버 실행
 
 ```bash
 npm run dev
 ```
 
-브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 결과를 확인하세요.
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 대시보드를 확인하세요.
 
-### 5. package.json 수정
+### 3. 빌드
 
-프로젝트에 맞게 `package.json`의 다음 필드를 수정하세요:
-
-```json
-{
-  "name": "your-project-name",
-  "version": "1.0.0",
-  "description": "Your project description"
-}
+```bash
+npm run build
+npm run start
 ```
+
+## 📝 프로젝트 구조
+
+```
+src/
+├── app/
+│   ├── globals.css         # 글로벌 스타일
+│   ├── layout.tsx          # 레이아웃 설정
+│   └── page.tsx            # 메인 대시보드
+├── components/
+│   ├── Sidebar.tsx         # 사이드바 네비게이션
+│   └── charts/
+│       ├── CampaignMapChart.tsx           # 세계 지도 차트
+│       ├── InfluencerTable.tsx            # 인플루언서 테이블
+│       ├── BidirectionalBarChart.tsx      # 양방향 바 차트
+│       └── RadarChart.tsx                 # 레이더 차트
+├── lib/
+│   └── campaign-data.ts    # 샘플 데이터 생성
+└── types/
+    └── campaign-data.ts    # 타입 정의
+```
+
+## 🎯 주요 컴포넌트
+
+### 1. Sidebar (사이드바)
+왼쪽 고정 사이드바로 네비게이션을 제공합니다.
+
+- **User Profile**: 사용자 프로필 (아바타, 이름, 이메일)
+- **Search**: 검색 입력 필드
+- **Navigation Menu**: 
+  - 🏠 Home
+  - 📢 Campaign (현재 활성)
+  - 💳 Payments
+  - ⭐ Influencer
+  - ⚙️ Settings
+  - 👥 Team
+- **Pro Access**: 업그레이드 프로모션 버튼
+
+### 2. Campaign Header
+캠페인 정보를 표시하는 헤더 섹션입니다.
+
+- **뒤로가기 버튼**: 이전 페이지로 이동
+- **캠페인 아이콘**: 캠페인 로고/아이콘
+- **캠페인 정보**: 
+  - 이름 (Blue Chips Chicago)
+  - 설명 (Diam nullam quis nunc et pretium augue.)
+- **메타 정보**: 
+  - Status: Active/Inactive 상태
+  - Created on: 생성일
+- **메뉴 버튼**: 추가 옵션
+
+### 3. Platform Tabs
+플랫폼 간 전환 탭입니다.
+
+- Tiktok, Instagram, Facebook 탭
+- 선택한 플랫폼에 따라 모든 데이터 동적 변경
+- 활성 탭 시각적 표시 (파란색 하단 보더)
+
+### 4. KPI Cards
+4개의 핵심 지표 카드입니다.
+
+| 아이콘 | 메트릭 | 설명 |
+|--------|--------|------|
+| 👍 | Total Likes | 총 좋아요 수 (350,809) |
+| 💬 | Total Comments | 총 댓글 수 (186,072) |
+| 📊 | Total Shares | 총 공유 수 (120,043) |
+| ⚡ | Engagement | 참여율 (48.07%) |
+
+### 5. Influencer Table
+인플루언서 정보 테이블입니다.
+
+- **컬럼**: Name, Projects, Follower
+- **기능**: 
+  - "+ Add Influencer" 버튼
+  - 인플루언서 아바타 표시
+  - 팔로워 수 포맷팅 (1,620,201)
+
+### 6. Campaign Reach Map
+국가별 캠페인 도달 범위를 세계 지도로 표시합니다.
+
+- **정보 패널**:
+  - Campaign Reach: 12개국
+  - User Reached: 798,985명
+  - Period: 9개월
+  - Updated: 2s ago
+  - Refresh 버튼
+- **지도**: 
+  - 국가별 색상 구분 (사용자 수에 따라)
+  - 호버 시 국가 정보 표시
+
+### 7. Audience Age & Gender
+연령대별 남성/여성 분포를 양방향 바 차트로 표시합니다.
+
+- **연령대**: 15-24, 25-34, 35-44, 45-54, 55-64, +64
+- **성별**: Male (파란색), Female (초록색)
+- **레전드**: 상단에 성별 표시
+- **인터랙티브**: 호버 시 정확한 수치 표시
+
+### 8. Follower Interest
+팔로워 관심사를 레이더 차트로 표시합니다.
+
+- **카테고리**: Fashion, Technology, Cosmetics, Watches, Cars, Memes, Others
+- **플랫폼**: Tiktok (초록색), Twitter (파란색), Facebook (보라색)
+- **범위**: 0-100
+- **레전드**: 하단에 플랫폼별 색상 표시
 
 ## 📜 사용 가능한 스크립트
 
@@ -113,25 +203,18 @@ npm run jira:create   # Jira 이슈 생성
 Husky를 통해 다음 Git hooks가 자동으로 실행됩니다:
 
 ### Pre-commit
-
 - `npm run lint` - 코드 린팅
 - `npm run type-check` - 타입 체크
 
 ### Commit-msg
-
 - Commitlint - 커밋 메시지 규칙 검증
 - Jira 티켓 번호 검증 (설정된 경우)
-
-### Prepare-commit-msg
-
-- 커밋 메시지 템플릿 자동 적용
 
 ## 📝 커밋 메시지 규칙
 
 이 프로젝트는 [Conventional Commits](https://www.conventionalcommits.org/) 규칙을 따릅니다.
 
 ### 커밋 타입
-
 - `feat`: 새로운 기능
 - `fix`: 버그 수정
 - `docs`: 문서 변경
@@ -147,131 +230,112 @@ Husky를 통해 다음 Git hooks가 자동으로 실행됩니다:
 npm run commit
 
 # 또는 직접 작성
-git commit -m "feat: 사용자 로그인 기능 추가"
-git commit -m "fix: 로그인 버튼 클릭 이벤트 수정"
+git commit -m "feat: 인플루언서 추가 기능 구현"
+git commit -m "fix: 세계 지도 렌더링 버그 수정"
 ```
 
-## 📁 프로젝트 구조
+## 🔧 타입 정의
 
-```
-frontend-scaffold/
-├── public/              # 정적 파일 (이미지, 폰트 등)
-├── src/
-│   ├── app/            # Next.js App Router
-│   │   ├── layout.tsx  # 루트 레이아웃
-│   │   ├── page.tsx    # 홈 페이지
-│   │   └── globals.css # 전역 스타일
-│   ├── components/     # 재사용 가능한 컴포넌트
-│   ├── lib/           # 유틸리티 함수, API 클라이언트
-│   ├── types/         # TypeScript 타입 정의
-│   └── styles/        # 추가 스타일 파일
-├── .husky/            # Git hooks
-├── scripts/           # 빌드/배포 스크립트
-├── next.config.ts     # Next.js 설정
-├── tsconfig.json      # TypeScript 설정
-├── eslint.config.mjs  # ESLint 설정
-└── package.json       # 프로젝트 메타데이터
-```
-
-## 🎯 Next.js App Router
-
-이 템플릿은 Next.js 15의 App Router를 사용합니다.
-
-### 주요 특징
-
-- **파일 기반 라우팅**: `src/app` 디렉토리 구조가 URL 경로가 됩니다.
-- **서버 컴포넌트**: 기본적으로 모든 컴포넌트는 서버 컴포넌트입니다.
-- **레이아웃**: `layout.tsx`로 중첩 레이아웃을 구성할 수 있습니다.
-
-### 페이지 생성 예시
-
-```bash
-# /about 페이지 생성
-mkdir -p src/app/about
-cat > src/app/about/page.tsx << 'EOF'
-const AboutPage = () => {
-  return <div>About Page</div>;
-};
-
-export default AboutPage;
-EOF
-```
-
-## ⚙️ TypeScript 설정
-
-### 주요 설정
-
-- **Target**: ES2020
-- **JSX**: preserve (Next.js가 자동으로 처리)
-- **Module**: ESNext
-- **Strict Mode**: 활성화
-- **Path Mapping**: `@/*`로 절대 경로 import 가능
-
-### 절대 경로 Import 예시
-
+### SocialPlatform
 ```typescript
-// 상대 경로 대신
-import { Button } from '../../../components/Button';
-
-// 절대 경로 사용
-import { Button } from '@/components/Button';
+type SocialPlatform = 'tiktok' | 'instagram' | 'facebook';
 ```
 
-### 엄격한 타입 체크 옵션
-
-- `noUnusedLocals` - 사용하지 않는 로컬 변수 금지
-- `noUnusedParameters` - 사용하지 않는 매개변수 금지
-- `noUncheckedIndexedAccess` - 인덱스 접근 시 undefined 체크 강제
-- `noImplicitOverride` - override 키워드 명시 강제
-- `noPropertyAccessFromIndexSignature` - 인덱스 시그니처 속성 접근 제한
-
-## 🔍 ESLint 설정
-
-### Flat Config (ESLint 9.x) + Next.js
-
-이 프로젝트는 ESLint 9.x의 Flat Config와 Next.js 최적화 규칙을 사용합니다.
-
-### 주요 규칙
-
-- **Next.js 최적화**: `eslint-config-next` 통합
-- **Import 자동 정렬**: React → Next.js → 외부 라이브러리 → 내부 모듈
-- **Named Export 우선**: 일반 컴포넌트는 Named Export 사용
-- **Default Export 허용**: App Router 파일(`page.tsx`, `layout.tsx` 등)은 Default Export 사용
-- **화살표 함수**: 함수 컴포넌트는 화살표 함수로 작성
-- **Prettier 통합**: 코드 스타일 자동 수정
-
-### Import 정렬 예시
-
+### Campaign
 ```typescript
-// ✅ 올바른 순서
-import { useState } from 'react';
-import Image from 'next/image';
-import { Button } from '@/components/Button';
-import { formatDate } from '@/lib/utils';
-import './styles.css';
+interface Campaign {
+  id: string;
+  name: string;
+  description: string;
+  status: 'active' | 'inactive' | 'completed';
+  createdAt: string;
+}
 ```
 
-## 🎨 Prettier 설정
+### CampaignMetrics
+```typescript
+interface CampaignMetrics {
+  totalLikes: number;
+  totalComments: number;
+  totalShares: number;
+  engagement: number;
+}
+```
 
-### 주요 설정
+### Influencer
+```typescript
+interface Influencer {
+  id: string;
+  name: string;
+  avatar: string;
+  projects: number;
+  followers: number;
+}
+```
 
-- **printWidth**: 100
-- **tabWidth**: 2
-- **semi**: true
-- **singleQuote**: true
-- **trailingComma**: 'all'
+### CountryReach
+```typescript
+interface CountryReach {
+  country: string;
+  countryCode: string;
+  users: number;
+  platform: SocialPlatform;
+}
+```
 
-## 📦 Jira 연동 (선택사항)
+### AgeDemographics
+```typescript
+interface AgeDemographics {
+  ageGroup: string;
+  male: number;
+  female: number;
+  platform: SocialPlatform;
+}
+```
 
-`scripts/jira/` 디렉토리에 Jira 연동 스크립트가 포함되어 있습니다.
+### FollowerInterest
+```typescript
+interface FollowerInterest {
+  category: string;
+  tiktok: number;
+  twitter: number;
+  facebook: number;
+}
+```
 
-### 설정 방법
+## 🔥 개발 현황
 
-1. `scripts/jira/jira-create-config.json` 수정
-2. Jira API 토큰 설정
-3. `npm run jira:create`로 이슈 생성
+### 완료된 기능
+- [x] 사이드바 네비게이션
+- [x] 캠페인 헤더
+- [x] 플랫폼 탭 전환
+- [x] KPI 카드 4개
+- [x] 인플루언서 테이블
+- [x] 세계 지도 차트 (Nivo GeoMap)
+- [x] 양방향 바 차트 (연령/성별)
+- [x] 레이더 차트 (관심사)
+- [x] 반응형 디자인
+- [x] 샘플 데이터 생성
+- [x] 타입 안정성 (TypeScript)
 
-자세한 내용은 `scripts/jira/README.md`를 참고하세요.
+### 향후 계획
+- [ ] 실제 API 연동
+- [ ] 데이터베이스 연동
+- [ ] 인플루언서 CRUD 기능
+  - [ ] 추가
+  - [ ] 수정
+  - [ ] 삭제
+- [ ] 캠페인 관리 기능
+  - [ ] 생성
+  - [ ] 수정
+  - [ ] 삭제
+- [ ] 데이터 내보내기 (CSV, PDF)
+- [ ] 실시간 데이터 업데이트
+- [ ] 다크 모드
+- [ ] 다국어 지원
+- [ ] 알림 기능
+- [ ] 사용자 인증
+- [ ] 권한 관리
 
 ## 🌐 환경 변수
 
@@ -288,18 +352,6 @@ Next.js는 `.env.local` 파일에서 환경 변수를 로드합니다.
    - 접두사 없음
    - 서버 컴포넌트와 API Route에서만 사용 가능
    - 예: `DATABASE_URL`, `API_SECRET_KEY`
-
-### 사용 예시
-
-```typescript
-// 클라이언트 컴포넌트
-'use client';
-
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-
-// 서버 컴포넌트 또는 API Route
-const dbUrl = process.env.DATABASE_URL;
-```
 
 ## 🚀 배포
 
@@ -318,18 +370,14 @@ vercel
 ```bash
 # next.config.ts에서 output: 'standalone' 설정 후
 npm run build
-docker build -t my-app .
-docker run -p 3000:3000 my-app
+docker build -t campaign-dashboard .
+docker run -p 3000:3000 campaign-dashboard
 ```
 
-## 📄 라이선스
+## 📞 문의
 
-이 프로젝트는 템플릿으로 자유롭게 사용 가능합니다.
-
-## 🤝 기여
-
-이슈나 개선 사항이 있다면 자유롭게 PR을 보내주세요.
+프로젝트 관련 문의사항이 있으시면 팀 채널로 연락주세요.
 
 ---
 
-**Happy Coding! 🚀**
+Made with ❤️ by AXGATE Team
