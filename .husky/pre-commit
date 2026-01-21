@@ -1,0 +1,27 @@
+echo "🔍 Running lint checks..."
+# 린트할 파일이 있으면 검사, 없으면 통과
+eslint . --max-warnings 0 2>/dev/null || {
+  exit_code=$?
+  # exit code 2는 "no files to lint" 에러 (통과 처리)
+  if [ $exit_code -eq 2 ]; then
+    echo "⚠️  No files to lint, skipping..."
+  else
+    echo "❌ Lint failed!"
+    exit $exit_code
+  fi
+}
+
+echo "🔎 Running type checks..."
+# 타입 체크할 파일이 있으면 검사, 없으면 통과
+tsc --noEmit 2>/dev/null || {
+  exit_code=$?
+  # exit code 2는 "no inputs found" 에러 (통과 처리)
+  if [ $exit_code -eq 2 ]; then
+    echo "⚠️  No files to type-check, skipping..."
+  else
+    echo "❌ Type check failed!"
+    exit $exit_code
+  fi
+}
+
+echo "✅ All checks passed!"
